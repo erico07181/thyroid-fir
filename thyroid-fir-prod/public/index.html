@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index-styling.css" />
+    <link rel="icon" type="image/x-icon" href=".\assets\thq_favicon.ico">
+    <title>ThyroidHQ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="functions.js"></script>
+    <script src="carousel-funcs.js" defer></script>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.22.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.22.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.22.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="website-container">
+      <div id="navbar" class="navbar">
+        <div id="div-2" class="div-2">
+          <div class="company-masthead">
+            <a href=".\index.html">
+              <div class="logo">
+                <img class="thyroidhq-butterfly" src=".\assets\thq-logo-no_background.png"
+                  alt="thyroidhq butterfly"></img>
+              </div>
+              <div class="company-name">ThyroidHQ</div>
+            </a>
+          </div>
+        </div>
+        <button type="button" id="toggle_navbar" class="toggle_navbar" onclick="hamburger()">
+          <!-- will show on mobile & tablet views-->
+          <div class="hamburger-menu-container">
+            <img class="hamburger-menu" src=".\assets\hamburger-menu.svg" alt="hamburger menu bars"></img>
+          </div>
+        </button>
+        <div id="navbar-options" class="navbar-options">
+          <!-- this div shows on desktop but hides on mobile & tablets -->
+          <div class="navbar-links">
+          </div>
+          <!-- class="service-link-container" is hidden with css until service is ready for GA-->
+          <div class="service-link-container">Our Service</div>
+          <div class="contact-link-container">
+            <a href=".\about-us.html">About Us</a>
+          </div>
+          <div class="contact-link-container">
+            <a href="#contact-us">Contact Us</a>
+          </div>
+          <div class="signup-link-container">
+            <a>
+              <div class="sign-up-button">
+                <a href=".\index.html#sign-up">Sign up</a>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div id="mobile_navbar_options" class="navMenu">
+          <div class="div-8">
+            <a href=".\about-us.html">About Us</a>
+          </div>
+          <div class="div-10">
+            <a href=".\index.html#contact-us">Contact Us</a>
+          </div>
+          <div class="signup-link-container">
+            <div class="sign-up-button">
+              <a href=".\index.html#sign-up">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sections-container">
+        <div class="hero-section-container">
+          <div class="hero-wrapper">
+              <div class="builder-columns div">
+                  <div class="builder-column column">
+                      <div class="hero-content">
+                          <div class="hero-content-elements-wrapper">
+                              <div class="hero-contet-title-text-wrapper">
+                                  Thyroid care at your fingertips.
+                              </div>
+                              <div class="hero-contet-subtitle-text">
+                                  Get your results today!
+                              </div>
+                              <div class="hero-contet-button-wrapper">
+                                  <div class="hero-contet-button">
+                                      <a href="#sign-up">Order Now</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="builder-column column-2">
+                      <img loading="lazy" src=".\assets\Ellipse 18.png" class="test-kit-box-higher-res" />
+                  </div>
+              </div>
+          </div>
+      </div>
+        <div class="product-desc-section-container">
+          <div class="product-desc-header">
+            <img loading="lazy" src=".\assets\thq-logo-no_background.png" class="thyroidhq-butterfly-2" />
+            <div class="product-desc-header-title">
+              Your very own thyroid test kit
+            </div>
+            <div class="line-2-2"></div>
+            <div class="div-2">
+              In just minutes, you'll be able to collect samples that our labs will
+              use to test for TSH, T3, and T4. Knowing your thyroid levels has never
+              been easier.
+            </div>
+          </div>
+          <div class="product-desc-container">
+            <div class="product-desc-graphic-container" data-el="product-desc-graphic-container">
+              <img loading="lazy" src="assets/test-kit-components-2.png" class="image-3" display="flex" />
+              <div class="builder-image-sizer image-sizer-4"></div>
+            </div>
+            <div class="product-desc-content">
+              <div class="product-desc-content-header">
+                <div class="product-desc-content-header-text">
+                  What's inside your kit:
+                </div>
+                <div class="line-3"></div>
+              </div>
+              <div class="product-items">
+                <div class="product-item-line">
+                  <img class="ellipse" loading="lazy" src=".\assets\test_kit_contents-bullet.svg" />
+                  <div class="one-collection-card">1 collection card</div>
+                </div>
+                <div class="product-item-line-2">
+                  <img class="ellipse" loading="lazy" src=".\assets\test_kit_contents-bullet.svg" />
+                  <div class="two-lancets">2 lancets</div>
+                </div>
+                <div class="product-item-line-3">
+                  <img class="ellipse" loading="lazy" src=".\assets\test_kit_contents-bullet.svg" />
+                  <div class="bandage-gauze-and-alcohol-pad">
+                    Bandage, gauze, and alcohol pad
+                  </div>
+                </div>
+                <div class="product-item-line-4">
+                  <img class="ellipse" loading="lazy" src=".\assets\test_kit_contents-bullet.svg" />
+                  <div class="biohazard-bag">Biohazard bag</div>
+                </div>
+                <div class="product-item-line-5">
+                  <img class="ellipse" loading="lazy" src=".\assets\test_kit_contents-bullet.svg" />
+                  <div class="prepaid-return-shipping-label">
+                    Prepaid return shipping label
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="explainer-section-container" id="how-it-works">
+          <div class="explainer-header">
+            <div class="explainer-header-title">How it works</div>
+            <div class="line-2-2"></div>
+          </div>
+          <div class="BuilderCarousel">
+            <div class="carousel-track-container">
+              <div class="carousel-imgs">
+                <img src="./assets/mobile-explainer_container_1.svg" class="carousel-img visible" />
+                <img src="./assets/mobile-explainer_container_2.svg" class="carousel-img  hidden" />
+                <img src="./assets/mobile-explainer_container_3.svg" class="carousel-img  hidden" />
+                <img src="./assets/mobile-explainer_container_4.svg" class="carousel-img  hidden" />
+                <img src="./assets/mobile-explainer_container_5.svg" class="carousel-img  hidden" />
+              </div>
+              <a class="prev arrow">&#10094;</a>
+              <a class="next arrow">&#10095;</a>
+              <div class="slide-numbers">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="explainer-content-container">
+            <div class="explainer-container-1">
+              <div class="red-circle-badge-number-container">
+                <img class="red-circle-badge-number-1" loading="lazy" src=".\assets\red_badge_circle-1.svg" />
+              </div>
+              <div class="step-1-title-container">
+                Receive your thyroid test kit
+              </div>
+              <div class="step-1-paragraph-container">
+                You'll get everything you need within 3-5 business days of your
+                online order.
+              </div>
+              <div class="step-1-graphic-container">
+                <img class="box-wireframe" loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F1c6a45b23e944dd88d8d444da1d17c65" />
+              </div>
+            </div>
+            <div class="explainer-container-2">
+              <div class="red-circle-badge-number-container">
+                <img class="red-circle-badge-number-2" loading="lazy" src=".\assets\red_badge_circle-2.svg" />
+              </div>
+              <div class="step-2-title-container">Take your thyroid test</div>
+              <div class="step-2-paragraph-container">
+                Collect your samples with help from our instructional videos from
+                the comfort of your own home.
+              </div>
+              <div class="step-2-graphic-container">
+                <img class="blood-drop-wireframe" loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F0a8d965cb91c4ac8ae377aa4c1e9f8ae" />
+              </div>
+            </div>
+            <div class="explainer-container-3">
+              <div class="red-circle-badge-number-container">
+                <img class="red-circle-badge-number-3" loading="lazy" src=".\assets\red_badge_circle-3.svg" />
+              </div>
+              <div class="step-3-title-container">Ship your kit to our labs</div>
+              <div class="step-3-paragraph-container">
+                Once we receive your kit, we'll begin testing your samples in our
+                CLIA certified labs.
+              </div>
+              <div class="step-3-graphic-container">
+                <img class="packaging-wireframe" loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F29a2ec7160e24908bed82064595866ba" />
+              </div>
+            </div>
+            <div class="explainer-container-4">
+              <!-- Need to figure out why copying the css selector in firefox adds .explainer-container-4 > div:nth-child(1) 
+                   I think that's what's messing up the height of red-circle-badge-number-container -->
+              <div class="red-circle-badge-number-container">
+                <img class="red-circle-badge-number-4" loading="lazy" src=".\assets\red_badge_circle-4.svg" />
+              </div>
+              <div class="step-4-title-container">Explore your results</div>
+              <div class="step-4-paragraph-container">
+                Within 5-7 business days your results will be available at
+                <div class="step-4-paragraph-url">
+                  <p>thyroidhq.com/results</p>
+                  <p><br /></p>
+                </div>
+              </div>
+              <div class="step-4-graphic-container">
+                <img class="medical-result-wireframe" loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2F37e0b4af2df541d2af07c4ea5370d19c" />
+              </div>
+            </div>
+            <div class="explainer-container-5">
+              <div class="red-circle-badge-number-container">
+                <img class="red-circle-badge-number-5" loading="lazy" src=".\assets\red_badge_circle-5.svg" />
+              </div>
+              <div class="step-5-title-container">
+                Schedule an appointment with a physician
+              </div>
+              <div class="step-5-paragraph-container">
+                Want to talk about your results with a physician? Why wait? Click
+                here.
+              </div>
+              <div class="step-5-graphic-container">
+                <img class="computer-1-wireframe" loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fb6a8d22c5f944f708dab4ef53ba3d303" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+  
+        <div class="value-prop-section-container">
+          <div class="value-prop-header-container">
+            <div class="value-prop-title-area-wrapper">
+              <div class="value-prop-title">
+                Your thyroid on-demand
+              </div>
+              <div class="value-prop-section-divider">
+                <div class="line-2-3"></div>
+              </div>
+  
+            </div>
+            <div class="value-prop-content-container">
+              <div class="value-prop-bullet-points">
+                <div class="value-prop-bullet-points-wrapp">
+                  <div id="bullet-point-1" class="bullet-points">Accurate</div>
+                  <div id="bullet-point-2" class="bullet-points">Fast</div>
+                  <div id="bullet-point-3" class="bullet-points">Convenient</div>
+                  <div class="value-prop-slogan">
+                    Because you know your body best
+                  </div>
+                </div>
+              </div>
+              <div class="value-prop-graphic">
+                <img class="webapp-on-iphone-mockup" loading="lazy" src=".\assets\iPhone_thq_mockup.svg" />
+              </div>
+              <div class="value-prop-product-level-props">
+                <div class="value-prop-product-level-props-wrapper">
+                  <div class="value-prop-product-level-prop-1-wrapper">
+                    <div class="value-prop-product-level-prop-1-title-area">
+                      <div class="value-prop-product-level-prop-1-title">
+                        On-demand thyroid care
+                      </div>
+                      <div class="value-prop-product-level-prop-1-wrapper-divider"></div>
+                    </div>
+                    <div class="value-prop-product-level-prop-1-description">
+                      Find out what your thyroid levels are within days. No more
+                      waiting for a doctor's appointment.
+                    </div>
+                  </div>
+                  <div class="value-prop-product-level-prop-2-wrapper">
+                    <div class="value-prop-product-level-prop-2-title-area">
+                      <div class="value-prop-product-level-prop-2-title">
+                        More tests at a fraction of the cost
+                      </div>
+                      <div class="value-prop-product-level-prop-2-wrapper-divider"></div>
+                    </div>
+                    <div class="value-prop-product-level-prop-2-description">
+                      Other companies care about their profits. We care about you.
+                      That's why we offer affordable at-home thyroid test kits. Find
+                      out what your TSH, T3, and T4 levels are without breaking the
+                      bank.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cta-section-container" id="sign-up">
+          <div class="cta-section-wrapper">
+            <div class="cta-header-area">
+              <img class="thyroid-hq-no-background" loading="lazy" src=".\assets\thq-logo-no_background.png" />
+              <div class="cta-text-wrapper">Get yours today</div>
+            </div>
+            <!-- cta-message-area is hidden with css until new copy is provided -->
+            <div class="cta-message-area">
+              <div class="cta-sentence-wrapper">
+                The 1st online platform for minority patients with hypothyroidism
+              </div>
+            </div>
+            <div id="waitlist-message" class="waitlist-message">
+          </div>
+          <form class="cta-waitlist-signup-wrapper">
+            <div class="waitlist-signup-group">
+              <form>
+                <input type="email" id="order-now-email-input" class="email-input" placeholder="Enter email address">
+              </form>
+              <button type="button" onclick="submitToOrderNowAPI(event)" id="cta-waitlist-signup-button"
+              class="cta-waitlist-signup-button">Join waitlist</button>
+            </div>
+          </form>
+          </div>
+        </div>
+        <div class="contact-us-section-container" id="contact-us">
+          <form id="contact-us-form" class="contact-us-form-wrapper" method="post">
+            <div class="contact-us-fields">
+              <div class="contact-us-title-area">
+                <div class="contact-us-title-text-wrapper">Contact us</div>
+                <div class="line-4">
+                  <img loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6" srcset="
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=100   100w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=200   200w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=400   400w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=800   800w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=1200 1200w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=1600 1600w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6?width=2000 2000w,
+                      https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Ff8849280e82b4e94a19b58310d777ed6
+                    " class="image-19" />
+                  <div class="builder-image-sizer image-sizer-22"></div>
+                </div>
+              </div>
+              <div class="contact-us-input-fields-wrapper">
+                <input type="text" id="contact-name-input" class="input-field-wrapper" placeholder="Name">
+                <input type="email" id="contact-email-input" class="input-field-wrapper" placeholder="Email">
+                <div class="contactor-type-prompt">I am a ...</div>
+                <select name="contactor-type-input" id="contact-contactor-type-input" class="input-field-wrapper">
+                  <!-- TODO: Need to add an extre option for when option isn't selected -->
+                  <option value="customer" selected>Customer</option>
+                  <option value="investor">Investor</option>
+                  <option value="potential-employee">Potential Employee</option>
+                </select>
+              </div>
+            </div>
+            <div class="div-3">
+              <div class="div-4"></div>
+            </div>
+            <div class="contact-us-message-text-area-wrapper">
+              <textarea id="contact-contactor-message-input" class="contact-us-message-text-area-wrapper-2"
+                placeholder="Enter your message..."></textarea>
+              <div id="success-contact-us-message"></div>
+              <div id="contact-message"></div>
+              <button type="button" onclick="submitToContactUsAPI(event)" class="contact-us-form-button">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer-container">
+        <!-- <div class="footer-info-containers"> -->
+          <div class="copyright-info-container">Copyright © 2022 - 2023 | 2.1.1</div>
+          <div class="div-46">
+            <div class="div-47">
+              <a href=about-us.html>About Us</a>
+            </div>
+            <div class="div-48">
+              <a href=.\terms-conditions.html">Terms and Conditions</a>
+            </div>
+            <div class="div-49">Privacy Policy</div>
+            <div class="div-50">
+              <a href=".\index.html#contact-us">Contact Us</a>
+            </div>
+            <div class="socials-container">
+              <div class="follow-us">Follow Us</div>
+              <div class="instagram-logo" data-el="instagram-logo">
+                <a href="https://www.instagram.com/thyroidhq/">
+                  <img loading="lazy" src=".\assets\instagram-logo.png" class="image-20" />
+                  <div class="builder-image-sizer image-sizer-23"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
